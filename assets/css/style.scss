@@ -1,0 +1,13 @@
+@import 'scss/vars';
+
+@import 'plugins/reset';
+@import 'scss/layout';
+
+@import 'scss/pages/home';
+
+//Plugings
+@import 'plugins/bootstrap/bootstrap';
+@import 'plugins/fontawesome/fontawesome';
+@import 'plugins/fontawesome/brands';
+@import 'plugins/fontawesome/regular';
+@import 'plugins/fontawesome/solid';

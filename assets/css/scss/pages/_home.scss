@@ -1,0 +1,166 @@
+.home {
+    height: 100vh;
+    display: block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:after {
+        content: '';
+        background: url('/assets/img/public/banner.jpg');
+        background-size: cover;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+    }
+    .content {
+        z-index: 2;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background: $white;
+        padding: 30px 50px;
+        border-radius: 30px;
+        &:hover {
+            h1 {
+                sup {
+                    color: $primary !important;
+                }
+            }
+        }
+        .top {
+            img {
+                border-radius: 50%;
+                box-shadow: 0 0 20px -4px $black4;
+                transition: .3s;
+                &:hover {
+                    box-shadow: 0 0 20px 0px $black;
+                }
+            }
+        }
+        .bottom {
+            padding-top: 10px;
+            .name {
+                sup {
+                    transition: color .3s;
+                }
+            }
+            .job-title {
+                color: $primary;
+            }
+            .social {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                li {
+                    a {
+                        background: $secondary;
+                        color: $white;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        transition: background .3s;
+                        &:hover {
+                            background: $secondaryDark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.about {
+    .tables {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        table {
+            flex: 1;
+            width: 100%;
+            margin: 10px;
+            thead {
+                th {
+                    padding: 5px 0;
+                    margin-bottom: 5px;
+                    border-bottom: 1px solid $primary;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        padding: 5px 8px;
+                        &:first-child {
+                            font-weight: bold;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.timeline {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-around;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background: $white;
+    }
+    .time {
+        padding: 0 20px;
+        margin-bottom: 10px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -9px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: $white;
+            border: 2px solid $primary;
+        }
+        
+        &::after {
+            content: attr(data-year);
+            position: absolute;
+            top: -2px;
+            left: 10px;
+            width: auto;
+            padding: 0px 10px;
+            border-radius: 4px;
+            background: $white;
+            color: $black4;
+            border: 2px solid $primary;
+            font-size: small;
+            display: none;
+            transition: display .5s;
+        }
+
+        &:hover {
+            &::after {
+                display: inline-block;
+            }
+        }
+    }
+}
