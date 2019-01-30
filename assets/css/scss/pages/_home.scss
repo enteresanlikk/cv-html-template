@@ -116,10 +116,11 @@
     flex-direction: column;
     position: relative;
     justify-content: space-around;
+    margin: 20px 0;
     &::before {
         content: '';
         position: absolute;
-        top: -10px;
+        top: 0;
         left: 0;
         height: 100%;
         width: 3px;
@@ -127,40 +128,120 @@
     }
     .time {
         padding: 0 20px;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         position: relative;
         &::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: 50%;
             left: -9px;
             height: 20px;
             width: 20px;
+            transform: translateY(-50%);
             border-radius: 50%;
             background: $white;
-            border: 2px solid $primary;
+        }
+
+        &:first-child {
+            &::before {
+                transform: unset;
+                top: 0 !important;
+            }
+        }
+
+        &:last-child {
+            margin: 0 !important;
+            &::before {
+                transform: unset;
+                top: unset !important;
+                bottom: 0 !important;
+            }
         }
         
-        &::after {
-            content: attr(data-year);
-            position: absolute;
-            top: -2px;
-            left: 10px;
+        .date {
             width: auto;
-            padding: 0px 10px;
+            padding: 2px 12px;
             border-radius: 4px;
             background: $white;
             color: $black4;
-            border: 2px solid $primary;
+            display: inline-block;
+            margin: 5px 0;
             font-size: small;
-            display: none;
-            transition: display .5s;
+            color: $primary;
         }
 
-        &:hover {
-            &::after {
-                display: inline-block;
+        h5 {
+            font-size: 14px;
+            color: $black2;
+            padding: 5px 2px;
+        }
+    }
+}
+
+.portfolio {
+    .timeline {
+        &::before {
+            background: $black4;
+        }
+        .time {
+            &::before {
+                background: $black4;
+            }
+            .date {
+                background: $black4;
+                color: $white;
             }
         }
+    }
+}
+
+.box-group {
+    width: 100%;
+    h4 {
+        padding: 10px 0 !important;
+        margin-bottom: 10px !important;
+        display: block;
+        border-bottom: 1px solid $white;
+        font-weight: bold;
+    }
+    .box {
+        padding: 10px 0;
+        h6 {
+            font-size: 14px;
+        }
+        .bar-container {
+            height: 5px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 5px;
+            margin: 5px 0;
+            position: relative;
+            overflow: hidden;
+            .bar {
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: $white;
+            }
+        }
+    }
+}
+
+.column-container {
+    width: 100%;
+    padding: 5px 10px;
+    grid-column-gap: 5px;
+    column-gap: 5px;
+    column-count: 5;
+    .column {
+        border-radius: 10px;
+        display: inline-block;
+        -webkit-column-break-inside: avoid;
+        background: $white1;
+        color: $black4;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        
     }
 }
