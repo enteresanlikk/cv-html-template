@@ -76,6 +76,22 @@
                 }
             }
         }
+        @include breakpoint(xs) {
+            padding: 30px 20px;
+            .bottom {
+                .name {
+                    font-size: 26px;
+                }
+                .job-title {
+                    font-size: 14px;
+                }
+                .social {
+                    li {
+                        margin: 3px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -106,6 +122,9 @@
                     }
                 }
             }
+        }
+        @include breakpoint(xs) {
+            flex-direction: column;
         }
     }
 }
@@ -195,6 +214,19 @@
     }
 }
 
+.other-info {
+    @include breakpoint(xs) {
+        .flex {
+            display: inline-block !important;
+            width: 100%;
+            .ml-2,
+            .mr-2 {
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
 .box-group {
     width: 100%;
     h4 {
@@ -232,16 +264,52 @@
     padding: 5px 10px;
     grid-column-gap: 5px;
     column-gap: 5px;
-    column-count: 5;
+    column-count: 4;
     .column {
         border-radius: 10px;
         display: inline-block;
         -webkit-column-break-inside: avoid;
-        background: $white1;
+        background: #f9f9f9;
         color: $black4;
         width: 100%;
         position: relative;
         overflow: hidden;
-        
+        border: 1px solid $white3;
+        .top {
+            margin: 0;
+            padding: 0;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .bottom {
+            h6 {
+                padding-top: 10px !important;
+                display: inline-block;
+            }
+            p {
+                padding: 10px;
+                font-size: 14px;
+            }
+            a {
+                width: 100%;
+                padding: 8px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $primary;
+                color: $white;
+                text-decoration: none;
+                transition: .3s;
+                border-radius: 0 0 10px 10px;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }     
+    }
+    @include breakpoint(xs) {
+        column-count: 1;
     }
 }

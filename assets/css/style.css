@@ -38,6 +38,8 @@ body {
 
 ol, ul {
   list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 blockquote, q {
@@ -95,6 +97,7 @@ html {
   height: 80px;
   -webkit-transition: height .5s;
   transition: height .5s;
+  padding: 0 10px;
 }
 
 .header .nav .menus {
@@ -102,6 +105,9 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header .nav .menus ul {
@@ -161,6 +167,40 @@ html {
   width: 100%;
 }
 
+.header .nav .menus .right .mobile-btn {
+  display: none;
+  position: relative;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 40px;
+  width: 40px;
+  float: right;
+  cursor: pointer;
+}
+
+.header .nav .menus .right .mobile-btn:hover span {
+  background: #fc6767;
+}
+
+.header .nav .menus .right .mobile-btn span {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  display: block;
+  background: #1fa5ff;
+  border-radius: 5px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .header .nav .menus .right ul {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -199,6 +239,63 @@ html {
 .header .nav .menus .right ul li a:hover::after, .header .nav .menus .right ul li a.active::after {
   left: 50%;
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .header {
+    height: 60px;
+  }
+  .header.active .nav .right .mobile-btn span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 21% 50%;
+            transform-origin: 21% 50%;
+  }
+  .header.active .nav .right .mobile-btn span:nth-child(2) {
+    display: none;
+  }
+  .header.active .nav .right .mobile-btn span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 28% 50%;
+            transform-origin: 28% 50%;
+  }
+  .header.active .nav .right ul {
+    height: 100%;
+    overflow-y: auto !important;
+  }
+  .header .nav {
+    height: 60px;
+  }
+  .header .nav .left .logo {
+    height: 40px !important;
+  }
+  .header .nav .left .logo::after {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .header .nav .right .mobile-btn {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .header .nav .right ul {
+    position: fixed;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    left: 0;
+    top: 60px;
+    background: #fff;
+    display: inline-block;
+    text-align: center;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+  }
+  .header .nav .right ul li a {
+    display: inline-block !important;
+    font-size: 20px;
+  }
 }
 
 .sec h2 {
@@ -925,6 +1022,21 @@ html {
   background: #f74848;
 }
 
+@media (max-width: 767px) {
+  .home .content {
+    padding: 30px 20px;
+  }
+  .home .content .bottom .name {
+    font-size: 26px;
+  }
+  .home .content .bottom .job-title {
+    font-size: 14px;
+  }
+  .home .content .bottom .social li {
+    margin: 3px;
+  }
+}
+
 .about .tables {
   width: 100%;
   display: -webkit-box;
@@ -956,6 +1068,15 @@ html {
 .about .tables table tbody tr td:first-child {
   font-weight: bold;
   width: 50%;
+}
+
+@media (max-width: 767px) {
+  .about .tables {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .timeline {
@@ -1050,6 +1171,17 @@ html {
   color: #fff;
 }
 
+@media (max-width: 767px) {
+  .other-info .flex {
+    display: inline-block !important;
+    width: 100%;
+  }
+  .other-info .flex .ml-2,
+  .other-info .flex .mr-2 {
+    margin: 0 !important;
+  }
+}
+
 .box-group {
   width: 100%;
 }
@@ -1093,19 +1225,71 @@ html {
   grid-column-gap: 5px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  -webkit-column-count: 5;
-          column-count: 5;
+  -webkit-column-count: 4;
+          column-count: 4;
 }
 
 .column-container .column {
   border-radius: 10px;
   display: inline-block;
   -webkit-column-break-inside: avoid;
-  background: #eee;
+  background: #f9f9f9;
   color: #444;
   width: 100%;
   position: relative;
   overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.column-container .column .top {
+  margin: 0;
+  padding: 0;
+}
+
+.column-container .column .top img {
+  width: 100%;
+  height: auto;
+}
+
+.column-container .column .bottom h6 {
+  padding-top: 10px !important;
+  display: inline-block;
+}
+
+.column-container .column .bottom p {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.column-container .column .bottom a {
+  width: 100%;
+  padding: 8px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1fa5ff;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border-radius: 0 0 10px 10px;
+}
+
+.column-container .column .bottom a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+  .column-container {
+    -webkit-column-count: 1;
+            column-count: 1;
+  }
 }
 
 /*!
