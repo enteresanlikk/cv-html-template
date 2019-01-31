@@ -264,7 +264,7 @@
     padding: 5px 10px;
     grid-column-gap: 5px;
     column-gap: 5px;
-    column-count: 4;
+    column-count: 3;
     .column {
         border-radius: 10px;
         display: inline-block;
@@ -292,21 +292,28 @@
                 padding: 10px;
                 font-size: 14px;
             }
-            a {
-                width: 100%;
-                padding: 8px 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: $primary;
-                color: $white;
-                text-decoration: none;
-                transition: .3s;
+            .buttons {                
                 border-radius: 0 0 10px 10px;
-                &:hover {
-                    opacity: 0.8;
+                overflow: hidden;
+                display: flex;
+                a {
+                    width: 100%;
+                    padding: 8px 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: $primary;
+                    color: $white;
+                    text-decoration: none;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                    &.github {
+                        background: $black4;
+                    }
                 }
             }
+            
         }     
     }
     @include breakpoint(xs) {

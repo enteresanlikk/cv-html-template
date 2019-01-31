@@ -299,3 +299,15 @@ html {
 .flex {
     display: flex;
 }
+
+.footer {
+    .container {
+        padding: 10px;
+        border-top: 1px solid $black4;
+        font-size: 14px;
+    }
+    .right {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

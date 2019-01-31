@@ -409,6 +409,21 @@ html {
   display: flex;
 }
 
+.footer .container {
+  padding: 10px;
+  border-top: 1px solid #444;
+  font-size: 14px;
+}
+
+.footer .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .width-0,
 .w-0 {
   width: 0%;
@@ -1225,8 +1240,8 @@ html {
   grid-column-gap: 5px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  -webkit-column-count: 4;
-          column-count: 4;
+  -webkit-column-count: 3;
+          column-count: 3;
 }
 
 .column-container .column {
@@ -1261,7 +1276,15 @@ html {
   font-size: 14px;
 }
 
-.column-container .column .bottom a {
+.column-container .column .bottom .buttons {
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.column-container .column .bottom .buttons a {
   width: 100%;
   padding: 8px 0;
   display: -webkit-box;
@@ -1276,13 +1299,14 @@ html {
   background: #1fa5ff;
   color: #fff;
   text-decoration: none;
-  -webkit-transition: .3s;
-  transition: .3s;
-  border-radius: 0 0 10px 10px;
 }
 
-.column-container .column .bottom a:hover {
+.column-container .column .bottom .buttons a:hover {
   opacity: 0.8;
+}
+
+.column-container .column .bottom .buttons a.github {
+  background: #444;
 }
 
 @media (max-width: 767px) {
