@@ -262,61 +262,87 @@
 .column-container {
     width: 100%;
     padding: 5px 10px;
-    grid-column-gap: 5px;
-    column-gap: 5px;
-    column-count: 3;
     .column {
-        border-radius: 10px;
-        display: inline-block;
-        -webkit-column-break-inside: avoid;
-        background: #f9f9f9;
-        color: $black4;
-        width: 100%;
+        display: flex;
+        min-height: 100px;
+        margin: 8px 0;
         position: relative;
-        overflow: hidden;
-        border: 1px solid $white3;
-        .top {
-            margin: 0;
-            padding: 0;
-            img {
-                width: 100%;
-                height: auto;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: $white1;
+            width: 90%;
+            height: 1px;
+        }
+        &:last-child {
+            &::after {
+                content: none;
             }
         }
-        .bottom {
-            h6 {
-                padding-top: 10px !important;
-                display: inline-block;
+        .left {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                height: 100%;
+                width: auto;
             }
+        }
+        .right {
+            width: 100%;
+            flex: 1;
+            padding: 0px 10px;
+            display: flex;
+            flex-direction: column;
             p {
-                padding: 10px;
+                margin: 0;
+                padding: 0;
                 font-size: 14px;
+                height: 100%;
+                flex: 1;
             }
-            .buttons {                
-                border-radius: 0 0 10px 10px;
-                overflow: hidden;
-                display: flex;
+            .buttons {
+                border-top: 1px solid $gray1;
+                padding: 5px 0;
+                margin: 5px 0;
                 a {
-                    width: 100%;
-                    padding: 8px 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                    text-decoration: none;
+                    padding: 3px 10px;
+                    font-size: 12px;
+                    border-radius: 3px;
                     background: $primary;
                     color: $white;
-                    text-decoration: none;
+                    border: 1px solid $primary;
+                    transition: background .3s, color .3s;
+                    display: block;
+                    width: 100%;
                     &:hover {
-                        opacity: 0.8;
+                        background: transparent;
+                        color: $primary;
                     }
                     &.github {
                         background: $black4;
+                        color: $white;
+                        border: 1px solid $black4;
+                        
+                        &:hover {
+                            background: transparent;
+                            color: $black4;
+                        }
                     }
                 }
             }
-            
-        }     
-    }
-    @include breakpoint(xs) {
-        column-count: 1;
+        }
+        @include breakpoint(xs) {
+            flex-direction: column;
+            .left {
+                padding: 5px;
+                height: 120px;
+            }
+        }
     }
 }
